@@ -1,0 +1,54 @@
+<?php BigBoat::getHeader(); ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-md-3">
+                <a href="#" class="border2 btn btn-success" style="width: 100%; height: 150px; padding-top: 55px;">
+                    <h5 class="card-title">Novo Pedido</h5>
+                </a>
+            </div>
+            <div class=" col-md-3">
+                <a href="#" class="border2 btn btn-info" style="width: 100%; height: 150px; padding-top: 55px;">
+                    <h5 class="card-title">Em andamento</h5>
+                </a>
+            </div>
+            <div class=" col-md-3">
+                <a href="#" class="border2 btn btn-warning" style="width: 100%; height: 150px; padding-top: 55px;">
+                    <h5 class="card-title">Pedidos Site/App</h5>
+                </a>
+            </div>
+            <div class=" col-md-3">
+                <a href="#" class="border2 btn btn-danger" style="width: 100%; height: 150px; padding-top: 55px;">
+                    <h5 class="card-title">Pedidos iFood</h5>
+                </a>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-md-12">
+                <div class="canvas">
+                    <h5>Vendas</h5>
+                    <canvas id="chartVendas"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-md-4">
+                <div class="canvas">
+                    <h5>Bairros mais vendidos</h5>
+                    <canvas id="chartBairros"></canvas>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="canvas">
+                    <h5>Formas de Pagamento</h5>
+                    <canvas id="chartPagamentos"></canvas>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="canvas">
+                    <h5>Pedidos</h5>
+                    <canvas id="chartPedidos"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php BigBoat::getFooter(); ?>

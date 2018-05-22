@@ -1,0 +1,58 @@
+<?php
+   if (isset($status) && $status == 'false'){
+        $msg='<h5 class="erro">Ops... Parece que tem algo errado no seu login!</h5>';
+   }elseif (isset($status) && $status == 'logged_out'){
+        $msg='<h5 class="erro">Desconectado com sucesso!</h5>';
+   }else{
+        $msg='';
+   }
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>BigBoat Sushi - Cadastro</title>
+        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet"></link>
+        <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+        <style>
+            body {
+                margin: 50px 0 0 0;
+                padding: 0;
+                width: 100%;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-align: center;
+                color: #aaa;
+                font-size: 18px;
+            }
+
+            h1 {
+                color: #719e40;
+                letter-spacing: -3px;
+                font-family: 'Lato', sans-serif;
+                font-size: 80px;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+            .erro {
+                color: #db4e4e;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>BigBoat Sushi - Novo Cadastro</h1>
+        <br>
+        <center>
+            <form action="/signin" method="post">
+                <input class="form-control input-md" style="width: 70%" type="text" name="username" placeholder="Usu&aacute;rio"><br>
+                <input class="form-control input-md" style="width: 70%" type="password" name="password" placeholder="Senha"><br><br><br> 
+                <button class="btn btn-success" type="submit">Acessar</button>
+            </form>
+            <br><br><br>
+            <a href="/resetpassword">Esqueci minha senha</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="/signup">N&atilde;o tenho cadastro</a>
+        </center>
+    </body>
+</html>
