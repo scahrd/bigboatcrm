@@ -17,6 +17,7 @@ $is_logged = function (Request $request, Response $response, $next){
     $privateRoutes = array(
             'home',
             'dashboard.home',
+            'dashboard.menu'
         );
     $apiRoutes = array(
             'api.getOrders',
