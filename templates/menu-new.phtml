@@ -1,18 +1,82 @@
 <?php BigBoat::getHeader(); ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12">
         <a href="/menu" class='btn btn-light'><i class="fas fa-arrow-left"></i> Voltar</a>
         <center><h4>Novo Cadastro</h4></center>
         </div>
     </div>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="nome">Nome</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="nome" aria-describedby="input">
+                  </div>
+            </div>
+            <div class="col-sm-6">
+                <center>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="tipoItem" id="option1" autocomplete="off" checked> Item Simples
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="tipoItem" id="option2" autocomplete="off"> Item Composto
+                        </label>
+                    </div>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="quantidade">Quantidade</span>
+                    </div>
+                    <input type="number" min="0" class="form-control" aria-label="quantidade" aria-describedby="input">
+                  </div>
+            </div>
+            <div class="col-sm-3">
+                <center>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="valor">Valor</span>
+                        </div>
+                        <input type="number" min="1" step="any" class="form-control" aria-label="valor" aria-describedby="input">
+                    </div>
+                </center>
+            </div>
+            <div class="col-sm-6">
+                <center>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="imagem">Imagem</span>
+                        </div>
+                        <input type="file" class="form-control-file input-file" id="imagem">
+                    </div>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="descricao">Descrição</span>
+                    </div>
+                    <textarea rows="5" class="form-control" aria-label="descricao" aria-describedby="input"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="observacoes">Observações</span>
+                    </div>
+                    <textarea rows="5" class="form-control" aria-label="observacoes" aria-describedby="input"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <?php BigBoat::getFooter(); ?>
-
-
-Título
-Composto (se composto tem relação n - n de pratos singulares)
-Descrição (só aparece para itens não compostos)
-Valor
-Observações
-Imagem

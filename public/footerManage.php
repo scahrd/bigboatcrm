@@ -1,16 +1,17 @@
-<?php
-
-?>
     </body>
-    <footer>
-        <nav class="navbar fixed-bottom navbar-light bg-light">
-            <h6>Footer</h6>
-        </nav>
-    </footer>
+<footer>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <h6>Footer</h6>
+    </nav>
+</footer>
 
 <script type="text/javascript">
+<?php 
+switch ($page) {
+    case 'dashboard':
+?>
     var ctxVendas = document.getElementById('chartVendas').getContext('2d');
-    ctxVendas.canvas.height = '55 ';
+        ctxVendas.canvas.height = '55 ';
     var chartVendas = new Chart(ctxVendas, {
         type: 'line',
         data: {
@@ -98,6 +99,45 @@
             }
         }
     });
+
+<?php
+    break;
+
+    case 'pedidos':
+?>
+
+<?php
+    break;
+
+    case 'pedidos-new':
+?>
+    $(document).ready(function(){
+        var headers = {'ApiKey':'ad78fabc48e94ea97cbace7191e78d33'}
+    });
+
+    function getMenu(){
+        $.ajax({
+            dataType: "json",
+            url: url,
+            data: data,
+            beforeSend: function (request) {
+              request.setRequestHeader(headers);
+            }
+            success: function (data) {
+                
+            },
+        });
+    }
+<?php
+    break;
+
+    case 'menu':
+?>
+
+<?php
+        break;
+}
+?>
 </script>
 
 </html>

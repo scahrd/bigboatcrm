@@ -1,0 +1,53 @@
+<?php BigBoat::getHeader(); ?>
+<div class="container-fluid"><!--   Big container   -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wizard-container"> <!--Wizard container-->
+                <!--You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue" -->
+                <div class="card wizard-card" data-color="green" id="wizardProfile">
+                    <form action="" method="">
+                        <div class="wizard-header">
+                            <h3 class="wizard-title">Novo pedido</h3>
+                        </div>
+                        <div class="wizard-navigation">
+                            <ul>
+                                <li><a href="#pedido" data-toggle="tab">Pedido</a></li>
+                                <li><a href="#identificacao" data-toggle="tab">Identificação</a></li>
+                                <li><a href="#pagamento" data-toggle="tab">Pagamento</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-content">
+                            <div class="tab-pane" id="pedido" style="height: 45vh;overflow-x: scroll">
+                                <div class="row">
+
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="identificacao" style="height: 45vh;overflow-x: scroll;">
+                                <div class="row">
+
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="pagamento" style="height: 45vh;overflow-x: scroll">
+                                <div class="row">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wizard-footer">
+                            <div class="pull-right">
+                                <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next' value='Próximo' />
+                                <input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finalizar Pedido' />
+                            </div>
+                            <div class="pull-left">
+                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Anterior' />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- wizard container -->
+        </div>
+    </div><!-- end row -->
+</div> <!--  big container -->
+<?php BigBoat::getFooter('pedidos-new'); ?>

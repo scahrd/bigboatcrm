@@ -9,7 +9,7 @@ class BigBoat{
         include_once('./headerManage.php');
     }
 
-    public static function getFooter(){
+    public static function getFooter($page='dashboard'){
         include_once('./footerManage.php');
     }
 

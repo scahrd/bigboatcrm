@@ -13,6 +13,9 @@
         <script src="<?=$cdnURL?>/js/jquery.js"></script>
         <script src="<?=$cdnURL?>/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?=$cdnURL?>/js/chart.min.js"></script>
+        <script src="<?=$cdnURL?>/js/wizard.js"></script>
+        <script src="<?=$cdnURL?>/js/wizard-validator.js"></script>
+        <script src="<?=$cdnURL?>/js/jquery.bootstrap.js"></script>
     </head>
         <header>
             <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">

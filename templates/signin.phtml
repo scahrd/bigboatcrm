@@ -1,13 +1,14 @@
 <?php
-   if (isset($status) && $status == 'false'){
+    $cdnURL = 'http://localhost:5000';
+    if (isset($status) && $status == 'false'){
         $msg='<h5 class="erro">Ops... Parece que tem algo errado no seu login!</h5>';
-   }elseif (isset($status) && $status == 'logged_out'){
+    }elseif (isset($status) && $status == 'logged_out'){
         $msg='<h5 class="erro">Desconectado com sucesso!</h5>';
-   }elseif (isset($status) && $status == 'unauthorized'){
+    }elseif (isset($status) && $status == 'unauthorized'){
         $msg='<h5 class="erro">Voc&ecirc; precisa estar logado!</h5>';
-   }else{
+    }else{
         $msg='';
-   }
+    }
 ?>
 <!DOCTYPE html>
 <html>
