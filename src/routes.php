@@ -13,3 +13,9 @@ $app->get('/', function (Request $request, Response $response, array $args) {
         return $response->withRedirect('/dashboard');
     }
 })->setName('home');
+
+
+
+$app->get('/teste', function (Request $request, Response $response, array $args) {
+    return $this->renderer->render($response, './teste.php', $args);
+})->setName('home');

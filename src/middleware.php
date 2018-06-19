@@ -10,7 +10,7 @@ $is_logged = function (Request $request, Response $response, $next){
     $routeName = $route->getName();
     $publicRoutes = array(
             'user.signin',
-            'user.login',
+            'user.login'
         );
     $privateRoutes = array(
             'home',
@@ -23,11 +23,15 @@ $is_logged = function (Request $request, Response $response, $next){
     $apiRoutes = array(
             'api.getOrders',
             'api.getMenu',
+            'api.getMenuItem',
         );
        
     if ((!isset($_SESSION['user']) or !is_array($_SESSION['user'])) && !in_array($routeName, $publicRoutes)) {
         if (in_array($routeName, $apiRoutes)) {
-            if (null !== $request->getHeader('Authorization') && !empty($request->getHeader('Authorization'))){
+            $authorization = $request->getHeader('Authorization');
+            $apikey = $request->getHeader('ApiKey');
+
+            if (!empty($authorization)){
                 $auth = $request->getHeader('Authorization');
                 if (isset($auth[0]) && !empty($auth[0])) {
                     $auth = explode(' ', $auth[0]);
@@ -47,8 +51,8 @@ $is_logged = function (Request $request, Response $response, $next){
                 } else {
                     return $response->withStatus(401)->write(json_encode(array('status'=>false, 'Unauthorized')));
                 }
-            }elseif(null !== $request->getHeader('ApiKey') && !empty($request->getHeader('ApiKey'))){
-                if($request->getHeader('ApiKey') == 'ad78fabc48e94ea97cbace7191e78d33'){
+            }elseif(!empty($apikey)){
+                if($apikey[0] == 'ad78fabc48e94ea97cbace7191e78d33'){
                     return $next($request, $response);
                 }else{
                     return $response->withStatus(401)->write(json_encode(array('status'=>false, 'Unauthorized')));

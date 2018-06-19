@@ -18,20 +18,15 @@
                         </div>
 
                         <div class="tab-content">
-                            <div class="tab-pane" id="pedido" style="height: 45vh;overflow-x: scroll">
-                                <div class="row">
-
-                                </div>
+                            <div class="tab-pane" id="pedido" style="height: 45vh;overflow-y: auto">
+                                <center id="loading-menu"><i style="margin-top:85px;" class="fas fa-spinner fa-spin"></i><br><span>Carregando pratos</span></center>
+                                <div id="menu-list" class="row" style="width: 98% !important;"></div>
                             </div>
-                            <div class="tab-pane" id="identificacao" style="height: 45vh;overflow-x: scroll;">
-                                <div class="row">
+                            <div class="tab-pane" id="identificacao" style="height: 45vh;overflow-y: auto;">
 
-                                </div>
                             </div>
-                            <div class="tab-pane" id="pagamento" style="height: 45vh;overflow-x: scroll">
-                                <div class="row">
+                            <div class="tab-pane" id="pagamento" style="height: 45vh;overflow-y: auto">
 
-                                </div>
                             </div>
                         </div>
                         <div class="wizard-footer">
@@ -49,5 +44,28 @@
             </div> <!-- wizard container -->
         </div>
     </div><!-- end row -->
+    
+    <!-- modal -->
+<!-- Modal -->
+    <div class="modal fade" id="modalItemPedido" tabindex="-1" role="dialog" aria-labelledby="modalItemPedidoLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalItemPedidoLabel">Detalhes do Item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" id="itemPedido"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-info">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal -->
 </div> <!--  big container -->
 <?php BigBoat::getFooter('pedidos-new'); ?>
