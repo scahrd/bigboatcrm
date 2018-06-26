@@ -48,24 +48,44 @@
     <!-- modal -->
 <!-- Modal -->
     <div class="modal fade" id="modalItemPedido" tabindex="-1" role="dialog" aria-labelledby="modalItemPedidoLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalItemPedidoLabel">Detalhes do Item</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
                 <div class="modal-body">
-                    <div class="row" id="itemPedido"></div>
+                        <center><i id="loading-menuItem" style="margin-top:85px; margin-bottom: 85px;" class="fas fa-spinner fa-spin"></i></center>
+                    <div id="itemPedido"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-info">Adicionar</button>
+                    <button type="button" class="btn btn-info" id="adicionarPedido">Adicionar</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- end modal -->
+    <div class="collapse" id="collapseExample" style="position: absolute; z-index: 9999; top: 20%; left: 2.5%; width: 95%; padding: 7px; background-color: lightgray; border-radius: 3px;">
+        <div class="card card-body" style="height: 500px;overflow-y: scroll;">
+                <center><h3><i class="fab fa-opencart"></i>Carrinho</h3></center>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="text-align: center; width: 15%">Quantidade</th>
+                            <th scope="col" style="text-align: left;">Item</th>
+                            <th scope="col" style="text-align: center; width: 10%">Valor</th>
+                            <th scope="col" style="text-align: center; width: 5%">Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableItens">
+                    </tbody>
+                </table>
+        </div>
+    </div>
 </div> <!--  big container -->
+<footer>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <button class="btn btn-default" style="left: 44%" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <i class="fab fa-opencart"></i> Carrinho <span class="badge badge-light" id="quantidadeCarrinho">0</span>
+        </button>
+        <h5 style="right: 0">Total R$ <span id="valorCarrinho">0.00</span></h5>
+    </nav>
+</footer>
 <?php BigBoat::getFooter('pedidos-new'); ?>

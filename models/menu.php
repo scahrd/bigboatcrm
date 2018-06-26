@@ -8,16 +8,16 @@ class Menu extends Database
 
     function getMenu($params=''){
         $query = "
-        SELECT 
-            a.id, a.nome, a.valor_unitario, a.descricao, a.imagem, a.composto, a.observacao,
-            GROUP_CONCAT(b.idproduto_composicao SEPARATOR ', ') as composicao
-        FROM produtos as a 
-            LEFT JOIN produto_composto b on a.composto = 1 AND a.id = b.idproduto_composto
-        WHERE 
-            a.status = 1 
-            AND a.valor_unitario > 0
-        GROUP BY a.id
-        ORDER BY a.nome;";
+            SELECT 
+                a.id, a.nome, a.valor_unitario, a.descricao, a.imagem, a.composto, a.observacao,
+                GROUP_CONCAT(b.idproduto_composicao SEPARATOR ', ') as composicao
+            FROM produtos as a 
+                LEFT JOIN produto_composto b on a.composto = 1 AND a.id = b.idproduto_composto
+            WHERE 
+                a.status = 1 
+                AND a.valor_unitario > 0
+            GROUP BY a.id
+            ORDER BY a.nome;";
 
         $result = $this->db->query($query);
         $pratos = array();
@@ -27,6 +27,44 @@ class Menu extends Database
         }
         $result->free();
         return json_encode($pratos);
+    }
+
+    function getMenuItem(int $id = 0){
+        if ($id > 0) {
+            $query = "
+                SELECT 
+                    a.id, a.nome, a.valor_unitario, a.descricao, a.imagem, a.composto, a.observacao,
+                    GROUP_CONCAT(b.idproduto_composicao SEPARATOR ', ') as composicao
+                FROM produtos as a 
+                    LEFT JOIN produto_composto b on a.composto = 1 AND a.id = b.idproduto_composto
+                WHERE 
+                    a.id = {$id}
+                GROUP BY a.id
+            ";
+            $result = $this->db->query($query);
+            $item = $result->fetch_assoc();
+            if ($item['composto'] > 0){
+                $queryComposicao = "
+                    SELECT 
+                        a.id, a.quantidade, b.nome
+                    FROM produto_composto AS a
+                    JOIN produtos b on b.status = 1 AND a.idproduto_composicao = b.id
+                    WHERE a.idproduto_composto = {$id}
+                ";
+                $resultComposicao = $this->db->query($queryComposicao);
+                $pratos = array();
+                while($a = $resultComposicao->fetch_assoc()){
+                    foreach ($a as $k => $p) { $a[$k] = ($p); }
+                    $composicao[] = $a;
+                }
+                $result->free();
+                $item['composicao'] = $composicao;
+            }
+            $result->free();
+            return json_encode($item);
+        }else{
+            return json_encode(false);
+        }
     }
 
     function createProdutos() {
